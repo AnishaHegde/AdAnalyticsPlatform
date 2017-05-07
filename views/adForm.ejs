@@ -1,0 +1,412 @@
+﻿
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <title>Ad Analytics Platform</title>
+    <!-- Favicon-->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
+
+    <!-- Bootstrap Core Css -->
+    <link href="plugins/bootstrap/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Waves Effect Css -->
+    <link href="plugins/node-waves/waves.css" rel="stylesheet" />
+
+    <!-- Animation Css -->
+    <link href="plugins/animate-css/animate.css" rel="stylesheet" />
+
+    <!-- Morris Chart Css-->
+    <link href="plugins/morrisjs/morris.css" rel="stylesheet" />
+
+    <!-- Custom Css -->
+    <link href="material/css/style.css" rel="stylesheet">
+
+    <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
+    <link href="material/css/themes/all-themes.css" rel="stylesheet" />
+
+    <!-- AngularJs library -->
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="/angular/router.js"></script>
+</head>
+
+<body class="theme-black" ng-app="indexApp" ng-controller="adFormCtrl">
+    <!-- Page Loader -->
+    <div class="page-loader-wrapper">
+        <div class="loader">
+            <div class="preloader">
+                <div class="spinner-layer pl-red">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="circle-clipper right">
+                        <div class="circle"></div>
+                    </div>
+                </div>
+            </div>
+            <p>Please wait...</p>
+        </div>
+    </div>
+    <!-- #END# Page Loader -->
+    <!-- Overlay For Sidebars -->
+    <div class="overlay"></div>
+    <!-- #END# Overlay For Sidebars -->
+    <!-- Search Bar -->
+    <div class="search-bar">
+        <div class="search-icon">
+            <i class="material-icons">search</i>
+        </div>
+        <input type="text" placeholder="START TYPING...">
+        <div class="close-search">
+            <i class="material-icons">close</i>
+        </div>
+    </div>
+    <!-- #END# Search Bar -->
+    <!-- Top Bar -->
+    <nav class="navbar">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a href="javascript:void(0);" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false"></a>
+                <a href="javascript:void(0);" class="bars"></a>
+                <a class="navbar-brand" href="/">Ad Analytics</a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <!-- Call Search -->
+                    <li><a href="javascript:void(0);" class="js-search" data-close="true"><i class="material-icons">search</i></a></li>
+                    <!-- #END# Call Search -->
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- #Top Bar -->
+    <section>
+        <!-- Left Sidebar -->
+        <aside id="leftsidebar" class="sidebar">
+            <!-- User Info -->
+            <div class="user-info">
+                <div class="image">
+                    <img src="material/images/userf.png" width="48" height="48" alt="User" />
+                </div>
+                <div class="info-container">
+                    <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Anisha Hegde</div>
+                    <div class="email">anisha.hegde@example.com</div>
+                    <div class="btn-group user-helper-dropdown">
+                        <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
+                        <ul class="dropdown-menu pull-right">
+                            <li><a href="javascript:void(0);"><i class="material-icons">person</i>Profile</a></li>
+                            <li><a href="javascript:void(0);"><i class="material-icons">input</i>Sign Out</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- #User Info -->
+
+            <!-- Menu -->
+            <div class="menu">
+                <ul class="list">
+                    <li class="header">MAIN NAVIGATION</li>
+                    <li>
+                        <a href="/users/anisha">
+                            <i class="material-icons">home</i>
+                            <span>History</span>
+                        </a>
+                    </li>
+                    <li class="active">
+                        <a href="/users/ad-planning-wizard/anisha">
+                            <i class="material-icons">layers</i>
+                            <span>Ad Planning Wizard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);" class="menu-toggle">
+                            <i class="material-icons">menu</i>
+                            <span>Platforms</span>
+                        </a>
+                        <ul class="ml-menu">
+                            <li>
+                                <!-- <a href="javascript:void(0);"> -->
+                                <a href="/platform/youtube">
+                                    <span>YouTube</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/platform/facebook">
+                                    <span>Facebook</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/platform/twitter">
+                                    <span>Twitter</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/platform/linkedin">
+                                    <span>LinkedIn</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/platform/google">
+                                    <span>Google AdWords</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <!-- #Menu -->
+            <!-- Footer -->
+            <!-- <div class="legal">
+                <div class="copyright">
+                    &copy; 2016 <a href="javascript:void(0);">AdminBSB - Material Design</a>.
+                </div>
+                <div class="version">
+                    <b>Version: </b> 1.0.4
+                </div>
+            </div> -->
+            <!-- #Footer -->
+        </aside>
+        <!-- #END# Left Sidebar -->
+    </section>
+
+    <section class="content">
+        <div class="container-fluid">
+            <div class="block-header">
+                <h2>GET AD PLATFORM RECOMMENDATION</h2>
+            </div>
+
+            <div class="row clearfix">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="card">
+                        <div class="header">
+                            <h2>
+                                Please fill out the below form
+                            </h2>
+                        </div>
+                        <div class="body">
+                            <form class="form-horizontal">
+
+                                <div class="row clearfix">
+                                    <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
+                                        <label for="product_title">Product Title</label>
+                                    </div>
+                                    <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                                <input type="text" id="product_title" ng-model="product_title" class="form-control" placeholder="Enter your product name">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row clearfix">
+                                    <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
+                                        <label for="product_description">Product Description</label>
+                                    </div>
+                                    <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                                <textarea rows="4" id="product_description" ng-model="product_description" class="form-control no-resize" placeholder="Enter your product description"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row clearfix">
+                                    <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
+                                        <label for="product_category">Product Category</label>
+                                    </div>
+                                    <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
+                                        <select class="form-control" id="product_category" ng-model="product_category" style="margin-left: -15px;">
+                                            <option>Select Category</option>
+                                            <option value="Mobiles">Mobiles</option>
+                                            <option value="Electronics and Appliances">Electronics and Appliances</option>
+                                            <option value="Cars">Cars</option>
+                                            <option value="Bikes">Bikes</option>
+                                            <option value="Furniture">Furniture</option>
+                                            <option value="Pet Food">Pet Food</option>
+                                            <option value="Books, Sports and hobbies">Books, Sports and hobbies</option>
+                                            <option value="Fashion">Fashion</option>
+                                            <option value="Games">Games</option>
+                                            <option value="Services">Services</option>
+                                            <option value="Real Estate">Real Estate</option>
+                                            <option value="Other">Other</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="row clearfix">
+                                    <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
+                                        <label for="other_product_category">Other</label>
+                                    </div>
+                                    <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                                <input type="text" id="other_product_category" ng-model="other_product_category" ng-show="product_category=='Other'" class="form-control" placeholder="Enter your product category">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row clearfix">
+                                    <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
+                                        <label for="age_max">Demographics Max Age</label>
+                                    </div>
+                                    <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                                <input type="text" id="age_max" ng-model="age_max" class="form-control" placeholder="Enter the maximum age for your target audience">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row clearfix">
+                                    <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
+                                        <label for="age_min">Demographics Min Age</label>
+                                    </div>
+                                    <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                                <input type="text" id="age_min" ng-model="age_min" class="form-control" placeholder="Enter the minimum age for your target audience">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row clearfix">
+                                    <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
+                                        <label for="gender">Demographics Gender</label>
+                                    </div>
+                                    <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
+                                        <div class="form-group" style="margin-top: 15px;">
+                                            <input type="radio" name="gender" id="male" ng-model="gender" class="with-gap" value="M">
+                                            <label for="male">Male</label>
+
+                                            <input type="radio" name="gender" id="female" ng-model="gender" class="with-gap" value="F">
+                                            <label for="female" class="m-l-20">Female</label>
+
+                                            <input type="radio" name="gender" id="both" ng-model="gender" class="with-gap" value="B">
+                                            <label for="both" class="m-l-20">Both</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row clearfix">
+                                    <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
+                                        <label for="budget">Budget</label>
+                                    </div>
+                                    <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                                <input type="text" id="budget" ng-model="budget" class="form-control" placeholder="Enter the budget">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row clearfix">
+                                    <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
+                                        <label for="city">City</label>
+                                    </div>
+                                    <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
+                                        <select class="form-control" id="city" ng-model="city" style="margin-left: -15px;">
+                                            <option>Select City</option>
+                                            <option value="San Francisco">San Francisco</option>
+                                            <option value="San Jose">San Jose</option>
+                                            <option value="San Diego">San Diego</option>
+                                            <option value="New York">New York</option>
+                                            <option value="Austin">Austin</option>
+                                            <option value="Boston">Boston</option>
+                                            <option value="Palo Alto">Palo Alto</option>
+                                            <option value="Redwood City">Redwood City</option>
+                                            <option value="Menlo Park">Menlo Park</option>
+                                            <option value="Seattle">Seattle</option>
+                                            <option value="Alaska City">Alaska City</option>
+                                            <option value="Other">Other</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="row clearfix">
+                                    <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
+                                        <label for="other_city">Other</label>
+                                    </div>
+                                    <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                                <input type="text" id="other_city" ng-model="other_product_category" ng-show="other_city=='Other'" class="form-control" placeholder="Enter your city">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row clearfix">
+                                    <div class="col-lg-offset-2 col-md-offset-2 col-sm-offset-4 col-xs-offset-5">
+                                        <button type="button" ng-click="submitAdForm();" class="btn btn-primary m-t-15 waves-effect">SUBMIT</button>
+
+                                        <button type="cancel" class="btn btn-primary m-t-15 waves-effect" style="margin-left: 5px;">CANCEL</button>
+                                    </div>
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+<!-- Jquery Core Js -->
+<script src="plugins/jquery/jquery.min.js"></script>
+
+<!-- Bootstrap Core Js -->
+<script src="plugins/bootstrap/js/bootstrap.js"></script>
+
+<!-- Select Plugin Js -->
+<!-- <script src="plugins/bootstrap-select/js/bootstrap-select.js"></script> -->
+
+<!-- Slimscroll Plugin Js -->
+<script src="plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
+
+<!-- Waves Effect Plugin Js -->
+<script src="plugins/node-waves/waves.js"></script>
+
+<!-- Jquery CountTo Plugin Js -->
+<script src="plugins/jquery-countto/jquery.countTo.js"></script>
+
+<!-- Morris Plugin Js -->
+<script src="plugins/raphael/raphael.min.js"></script>
+<script src="plugins/morrisjs/morris.js"></script>
+
+<!-- ChartJs -->
+<script src="plugins/chartjs/Chart.bundle.js"></script>
+
+<!-- Flot Charts Plugin Js -->
+<script src="plugins/flot-charts/jquery.flot.js"></script>
+<script src="plugins/flot-charts/jquery.flot.resize.js"></script>
+<script src="plugins/flot-charts/jquery.flot.pie.js"></script>
+<script src="plugins/flot-charts/jquery.flot.categories.js"></script>
+<script src="plugins/flot-charts/jquery.flot.time.js"></script>
+
+<!-- Sparkline Chart Plugin Js -->
+<script src="plugins/jquery-sparkline/jquery.sparkline.js"></script>
+
+<!-- Custom Js -->
+<script src="material/js/admin.js"></script>
+<script src="material/js/pages/index.js"></script>
+
+<!-- Demo Js -->
+<script src="material/js/demo.js"></script>
+</body>
+
+</html>

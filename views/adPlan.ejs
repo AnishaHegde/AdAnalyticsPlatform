@@ -1,0 +1,450 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <title>Ad Analytics Platform</title>
+    <!-- Favicon-->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
+
+    <!-- Bootstrap Core Css -->
+    <link href="plugins/bootstrap/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Waves Effect Css -->
+    <link href="plugins/node-waves/waves.css" rel="stylesheet" />
+
+    <!-- Animation Css -->
+    <link href="plugins/animate-css/animate.css" rel="stylesheet" />
+
+    <!-- Morris Chart Css-->
+    <link href="plugins/morrisjs/morris.css" rel="stylesheet" />
+
+    <!-- Custom Css -->
+    <link href="material/css/style.css" rel="stylesheet">
+
+    <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
+    <link href="material/css/themes/all-themes.css" rel="stylesheet" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="https://www.amcharts.com/lib/3/amcharts.js"></script>
+    <script src="https://www.amcharts.com/lib/3/serial.js"></script>
+    <script src="https://www.amcharts.com/lib/3/pie.js"></script>
+    <script src="https://www.amcharts.com/lib/3/plugins/export/export.min.js"></script>
+    <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
+    <script src="https://www.amcharts.com/lib/3/themes/light.js"></script>
+
+    <style type="text/css">
+        #chartdiv {
+          width: 100%;
+          height: 500px;
+          font-size: 11px;
+      }
+
+      .amcharts-pie-slice {
+          transform: scale(1);
+          transform-origin: 50% 50%;
+          transition-duration: 0.3s;
+          transition: all .3s ease-out;
+          -webkit-transition: all .3s ease-out;
+          -moz-transition: all .3s ease-out;
+          -o-transition: all .3s ease-out;
+          cursor: pointer;
+          box-shadow: 0 0 30px 0 #000;
+      }
+
+      .amcharts-pie-slice:hover {
+          transform: scale(1.1);
+          filter: url(#shadow);
+      }
+
+      #chartdiv1 {
+          width: 100%;
+          height: 500px;
+      }
+  </style>
+
+</head>
+
+<body class="theme-black">
+    <!-- Page Loader -->
+    <div class="page-loader-wrapper">
+        <div class="loader">
+            <div class="preloader">
+                <div class="spinner-layer pl-red">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="circle-clipper right">
+                        <div class="circle"></div>
+                    </div>
+                </div>
+            </div>
+            <p>Please wait...</p>
+        </div>
+    </div>
+    <!-- #END# Page Loader -->
+    <!-- Overlay For Sidebars -->
+    <div class="overlay"></div>
+    <!-- #END# Overlay For Sidebars -->
+    <!-- Search Bar -->
+    <div class="search-bar">
+        <div class="search-icon">
+            <i class="material-icons">search</i>
+        </div>
+        <input type="text" placeholder="START TYPING...">
+        <div class="close-search">
+            <i class="material-icons">close</i>
+        </div>
+    </div>
+    <!-- #END# Search Bar -->
+    <!-- Top Bar -->
+    <nav class="navbar">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a href="javascript:void(0);" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false"></a>
+                <a href="javascript:void(0);" class="bars"></a>
+                <a class="navbar-brand" href="/">Ad Analytics</a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <!-- Call Search -->
+                    <li><a href="javascript:void(0);" class="js-search" data-close="true"><i class="material-icons">search</i></a></li>
+                    <!-- #END# Call Search -->
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- #Top Bar -->
+    <section>
+        <!-- Left Sidebar -->
+        <aside id="leftsidebar" class="sidebar">
+            <!-- User Info -->
+            <div class="user-info">
+                <div class="image">
+                    <img src="material/images/userf.png" width="48" height="48" alt="User" />
+                </div>
+                <div class="info-container">
+                    <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Anisha Hegde</div>
+                    <div class="email">anisha.hegde@example.com</div>
+                    <div class="btn-group user-helper-dropdown">
+                        <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
+                        <ul class="dropdown-menu pull-right">
+                            <li><a href="javascript:void(0);"><i class="material-icons">person</i>Profile</a></li>
+                            <li><a href="javascript:void(0);"><i class="material-icons">input</i>Sign Out</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- #User Info -->
+            <!-- Menu -->
+            <!-- Menu -->
+            <div class="menu">
+                <ul class="list">
+                    <li class="header">MAIN NAVIGATION</li>
+                    <li>
+                        <a href="/users/anisha">
+                            <i class="material-icons">home</i>
+                            <span>History</span>
+                        </a>
+                    </li>
+                    <li class="active">
+                        <a href="/users/ad-planning-wizard/anisha" target="_blank">
+                            <i class="material-icons">layers</i>
+                            <span>Ad Planning Wizard</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="javascript:void(0);" class="menu-toggle">
+                            <i class="material-icons">menu</i>
+                            <span>Platforms</span>
+                        </a>
+                        <ul class="ml-menu">
+                            <li>
+                                <!-- <a href="javascript:void(0);"> -->
+                                <a href="/platform/youtube">
+                                    <span>YouTube</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/platform/facebook">
+                                    <span>Facebook</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/platform/twitter">
+                                    <span>Twitter</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/platform/linkedin">
+                                    <span>LinkedIn</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/platform/google">
+                                    <span>Google AdWords</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                </ul>
+            </div>
+            <!-- #Menu -->
+            <!-- #Menu -->
+        </aside>
+        <!-- #END# Left Sidebar -->
+
+    </section>
+
+    <section class="content">
+        <div class="container-fluid">
+            <div class="block-header">
+                <h2>
+                    Ad Plan - Mobile
+                </h2>
+            </div>
+            <div class="row clearfix">
+                <div id="table_div"></div>
+            </div>
+
+            <br><br><br>
+            <div class="block-header">
+                <h2>
+                    Success Rate for each Platform - Mobile
+                </h2>
+            </div>
+
+            <div class="row clearfix">
+                <div id="chartdiv"></div>
+            </div>
+
+            <br><br><br>
+            <div class="block-header">
+                <h2>
+                   Views and Clicks for Ads on each platform - Mobile
+                </h2>
+            </div>
+
+            <div class="row clearfix">
+                <div id="chartdiv1"></div>
+            </div>
+
+
+        </div>
+    </section>
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+    <script type="text/javascript">
+        google.charts.load('current', {'packages':['table']});
+        google.charts.setOnLoadCallback(drawTable);
+
+        function drawTable() {
+            var data = new google.visualization.DataTable();
+            data.addColumn('string', 'Platform');
+            data.addColumn('number', 'Budget');
+            data.addColumn('boolean', 'Recommended');
+            data.addRows([
+                ['YouTube',  {v: 10000, f: '$10,000'}, true],
+                ['Facebook',   {v:8000,   f: '$8,000'},  false],
+                ['Twitter', {v: 12500, f: '$12,500'}, true],
+                ['LinkedIn',   {v: 7000,  f: '$7,000'},  true],
+                ['Google AdWords',   {v: 7000,  f: '$7,000'},  true],
+                ]);
+
+            var table = new google.visualization.Table(document.getElementById('table_div'));
+
+            table.draw(data, {showRowNumber: true, width: '100%', height: '100%'});
+        }
+
+
+        var chart = AmCharts.makeChart("chartdiv", {
+          "type": "pie",
+          "startDuration": 0,
+          "theme": "light",
+          "addClassNames": true,
+          "legend":{
+            "position":"right",
+            "marginRight":100,
+            "autoMargins":false
+        },
+        "innerRadius": "30%",
+        "defs": {
+            "filter": [{
+              "id": "shadow",
+              "width": "200%",
+              "height": "200%",
+              "feOffset": {
+                "result": "offOut",
+                "in": "SourceAlpha",
+                "dx": 0,
+                "dy": 0
+            },
+            "feGaussianBlur": {
+                "result": "blurOut",
+                "in": "offOut",
+                "stdDeviation": 5
+            },
+            "feBlend": {
+                "in": "SourceGraphic",
+                "in2": "blurOut",
+                "mode": "normal"
+            }
+        }]
+    },
+        "dataProvider": [{
+            "Ad_Platforms": "YouTube",
+            "success_perecntage": 10000
+        }, {
+            "Ad_Platforms": "Facebook",
+            "success_perecntage": 8000
+        }, {
+            "Ad_Platforms": "Twitter",
+            "success_perecntage": 12500
+        }, {
+            "Ad_Platforms": "LinkedIn",
+            "success_perecntage": 7000
+        }, {
+            "Ad_Platforms": "Google AdWords",
+            "success_perecntage": 7000
+        }],
+        "valueField": "success_perecntage",
+        "titleField": "Ad_Platforms",
+        "export": {
+            "enabled": true
+        }
+    });
+
+        chart.addListener("init", handleInit);
+
+        chart.addListener("rollOverSlice", function(e) {
+          handleRollOver(e);
+      });
+
+        function handleInit(){
+          chart.legend.addListener("rollOverItem", handleRollOver);
+      }
+
+      function handleRollOver(e){
+          var wedge = e.dataItem.wedge.node;
+          wedge.parentNode.appendChild(wedge);
+      }
+
+
+      var chart1 = AmCharts.makeChart("chartdiv1", {
+        "theme": "light",
+        "type": "serial",
+        "dataProvider": [{
+            "AdPlatform": "YouTube",
+
+            "AdClicks": 1524,
+            "AdViews": 9819
+        }, {
+            "AdPlatform": "Facebook",
+
+            "AdClicks": 5883,
+            "AdViews":5321
+
+        }, {
+            "AdPlatform": "Google Adwords",
+
+            "AdClicks": 6021,
+            "AdViews": 9859
+        }, {
+            "AdPlatform": "Twitter",
+
+            "AdClicks": 5334,
+            "AdViews": 6976
+        }, {
+            "AdPlatform": "LinkedIn",
+
+            "AdClicks": 3412,
+            "AdViews": 6698
+        }],
+        "valueAxes": [{
+            "stackType": "3d",
+            "unit": "",
+            "position": "left",
+            "title": "Views & Clicks",
+        }],
+        "startDuration": 1,
+        "graphs": [{
+            "balloonText": "[[category]]AdClicks: <b>[[value]]</b>",
+            "fillAlphas": 0.9,
+            "lineAlpha": 0.2,
+            "title": "AdClicks",
+            "type": "column",
+            "valueField": "AdClicks"
+        }, {
+            "balloonText": "[[category]]AdViews: <b>[[value]]</b>",
+            "fillAlphas": 0.9,
+            "lineAlpha": 0.2,
+            "title": "AdViews",
+            "type": "column",
+            "valueField": "AdViews"
+        }],
+        "plotAreaFillAlphas": 0.1,
+        "depth3D": 60,
+        "angle": 30,
+        "categoryField": "AdPlatform",
+        "categoryAxis": {
+            "gridPosition": "start"
+        },
+        "export": {
+            "enabled": true
+         }
+    });
+    jQuery('.chart-input').off().on('input change',function() {
+        var property    = jQuery(this).data('property');
+        var target      = chart;
+        chart.startDuration = 0;
+
+        if ( property == 'topRadius') {
+            target = chart.graphs[0];
+            if ( this.value == 0 ) {
+              this.value = undefined;
+            }
+        }
+
+        target[property] = this.value;
+        chart.validateNow();
+    });
+
+
+  </script>
+
+  <!-- Jquery Core Js -->
+  <script src="plugins/jquery/jquery.min.js"></script>
+
+  <!-- Bootstrap Core Js -->
+  <script src="plugins/bootstrap/js/bootstrap.js"></script>
+
+  <!-- Select Plugin Js -->
+  <script src="plugins/bootstrap-select/js/bootstrap-select.js"></script>
+
+  <!-- Slimscroll Plugin Js -->
+  <script src="plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
+
+  <!-- Waves Effect Plugin Js -->
+  <script src="plugins/node-waves/waves.js"></script>
+
+  <!-- Chart Plugins Js -->
+  <script src="plugins/chartjs/Chart.bundle.js"></script>
+
+  <!-- Custom Js -->
+  <script src="material/js/admin.js"></script>
+  <script src="material/js/pages/charts/chartjs.js"></script>
+
+  <!-- Demo Js -->
+  <script src="material/js/demo.js"></script>
+</body>
+
+</html>
